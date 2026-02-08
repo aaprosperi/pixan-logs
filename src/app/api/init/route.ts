@@ -3,8 +3,8 @@ import { initDb } from '@/lib/db';
 
 export async function POST() {
   try {
-    const result = await initDb();
-    return NextResponse.json({ success: true, message: 'Database initialized', ...result });
+    await initDb();
+    return NextResponse.json({ success: true, message: 'Database initialized' });
   } catch (error) {
     console.error('Init error:', error);
     return NextResponse.json(
